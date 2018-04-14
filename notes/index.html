@@ -160,11 +160,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-TensorflowKeraSetup" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Sklean-Xgboost" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/06/TensorflowKeraSetup/" class="article-date">
-  	<time datetime="2017-03-07T02:00:23.000Z" itemprop="datePublished">2017-03-06</time>
+      <a href="/2016/05/16/Sklean-Xgboost/" class="article-date">
+  	<time datetime="2016-05-17T01:18:05.000Z" itemprop="datePublished">2016-05-16</time>
 </a>
     </div>
   
@@ -177,7 +177,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/06/TensorflowKeraSetup/">Setting up Tensorflow with Keras</a>
+      <a class="article-title" href="/2016/05/16/Sklean-Xgboost/">Sklean+Xgboost Cross Validation GridSearch Tuning</a>
     </h1>
   
 
@@ -187,39 +187,20 @@
     <div class="article-entry" itemprop="articleBody">
        
       
-        <p>Following up the deep learning workshop presented in SIS (<a href="/2017/03/06/TensorflowKeraSetup/Workship-sis-split.pdf" title="slides">slides</a>), this note introduces how to setup TensorFlow and Keras in your own computer without affecting your existing installations of Python.</p>
-<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><ol>
-<li>Follow the instructions on the <a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda download site</a> to download and install Anaconda.</li>
-<li><p>Create a sperated python environment by issuing the following command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda create -n tensorflow python=3.5</div></pre></td></tr></table></figure>
-</li>
-<li><p>To activate this environment:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">activate tensorflow</div></pre></td></tr></table></figure>
-</li>
-<li><p>You need to activate this environment everytime you want to play with TensorFlow+Keras</p>
-</li>
-<li><p>Install TensorFlow by invoking:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install tensorflow</div></pre></td></tr></table></figure>
-</li>
-<li><p>Install Keras by invoking:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install keras</div></pre></td></tr></table></figure>
-</li>
-<li><p>If you encounter scipy installation erros here (look for red words), you can invoke the following command and install keras again.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda install -c anaconda scipy</div></pre></td></tr></table></figure>
-</li>
-<li><p>Now you can call your python script:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python xxx.py</div></pre></td></tr></table></figure>
-</li>
-<li><p>Or you can play with a python notebook:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="Other-resources"><a href="#Other-resources" class="headerlink" title="Other resources:"></a>Other resources:</h2><ul>
-<li><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">Machine Learning</a> online course from Andred Ng. </li>
-<li><a href="http://deeplearning.stanford.edu/tutorial/" target="_blank" rel="external">Deep Learning Tutorial</a>.</li>
-<li>Book <a href="https://github.com/HFTrader/DeepLearningBook" target="_blank" rel="external">Deep Learning</a> by Ian Goodfellow, Yoshua Bengio and Aaron Courville. The link also provides useful references. </li>
+        <!--Recovred.. -->
+<p>This note illustrates an example using Xgboost with Sklean to tune the parameter using cross-validation. The example is based on our recent task of age regression on personal information management data. The code covers:</p>
+<ul>
+<li>Reading data</li>
+<li>Remove invalid records</li>
+<li>Slicing data</li>
+<li>Splitting training vectors and their corresponding labels</li>
+<li>Imputing missing values</li>
+<li>Scaling dataset</li>
+<li>Feature selection</li>
+<li>Grid search</li>
 </ul>
-
+<p>We need the following dependencies:</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline </span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot</span><br><span class="line"><span class="keyword">from</span> xgboost.sklearn <span class="keyword">import</span> XGBClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> Imputer</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> VarianceThreshold</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> f_classif</span><br><span class="line"><span class="keyword">from</span> sklearn.grid_search <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> cross_validation</span><br></pre></td></tr></table></figure><br>
       
        
     </div>
@@ -228,15 +209,19 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Keras/">Keras</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MachineLearning/">MachineLearning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MachineLearning/">MachineLearning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xgboost/">Xgboost</a></li></ul>
 	</div>
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/MachineLearning/">MachineLearning</a><a class="article-category-link" href="/categories/MachineLearning/Tutorial/">Tutorial</a>
+	<a class="article-category-link" href="/categories/MachineLearning/">MachineLearning</a>
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/16/Sklean-Xgboost/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -327,85 +312,6 @@
 
 
   
-    <article id="post-Sklean-Xgboost" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/16/Sklean-Xgboost/" class="article-date">
-  	<time datetime="2016-05-17T01:18:05.000Z" itemprop="datePublished">2016-05-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/16/Sklean-Xgboost/">Sklean+Xgboost Cross Validation GridSearch Tuning</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-       
-      
-        <!--Recovred.. -->
-<p>This note illustrates an example using Xgboost with Sklean to tune the parameter using cross-validation. The example is based on our recent task of age regression on personal information management data. The code covers:</p>
-<ul>
-<li>Reading data</li>
-<li>Remove invalid records</li>
-<li>Slicing data</li>
-<li>Splitting training vectors and their corresponding labels</li>
-<li>Imputing missing values</li>
-<li>Scaling dataset</li>
-<li>Feature selection</li>
-<li>Grid search</li>
-</ul>
-<p>We need the following dependencies:</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline </span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot</span><br><span class="line"><span class="keyword">from</span> xgboost.sklearn <span class="keyword">import</span> XGBClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> Imputer</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> VarianceThreshold</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> f_classif</span><br><span class="line"><span class="keyword">from</span> sklearn.grid_search <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> cross_validation</span><br></pre></td></tr></table></figure><br>
-      
-       
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MachineLearning/">MachineLearning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xgboost/">Xgboost</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/MachineLearning/">MachineLearning</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/16/Sklean-Xgboost/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Idaapi-Notes" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -423,7 +329,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/13/Idaapi-Notes/">Idaapi Notes</a>
+      <a class="article-title" href="/2018/04/13/Idaapi-Notes/">Idaapi GISTS</a>
     </h1>
   
 
@@ -433,7 +339,8 @@
     <div class="article-entry" itemprop="articleBody">
        
       
-        
+        <h2 id="Force-creation-of-an-assembly-function"><a href="#Force-creation-of-an-assembly-function" class="headerlink" title="Force creation of an assembly function:"></a>Force creation of an assembly function:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># get address from unstripped file</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">()</span>:</span></div><div class="line">    f = idaapi.get_func(ScreenEA())</div><div class="line">    <span class="keyword">print</span> [hex(f.startEA), hex(f.endEA)]</div><div class="line"></div><div class="line"><span class="comment"># create function in stripped file</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">create</span><span class="params">(ea_start, ea_end)</span>:</span></div><div class="line">    <span class="keyword">for</span> addr <span class="keyword">in</span> range(ea_start, ea_end): </div><div class="line">        idaapi.create_insn(addr)</div><div class="line">    MakeFunction(ea_start, ea_end)</div></pre></td></tr></table></figure>
+<h1 id="Remove-stack-reference-name-in-current-function"><a href="#Remove-stack-reference-name-in-current-function" class="headerlink" title="Remove stack reference name in current function:"></a>Remove stack reference name in current function:</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">unstack</span><span class="params">()</span>:</span></div><div class="line">    f = idaapi.get_func(ScreenEA())</div><div class="line">    <span class="keyword">for</span> addr <span class="keyword">in</span> range(f.startEA, f.endEA): </div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            idc.OpOff(addr, i, <span class="number">16</span>)</div></pre></td></tr></table></figure>
       
        
     </div>
@@ -442,6 +349,100 @@
       
       
       
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-TensorflowKeraSetup" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/06/TensorflowKeraSetup/" class="article-date">
+  	<time datetime="2017-03-07T02:00:23.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/06/TensorflowKeraSetup/">Setting up Tensorflow with Keras</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+       
+      
+        <p>Following up the deep learning workshop presented in SIS (<a href="/2017/03/06/TensorflowKeraSetup/Workship-sis-split.pdf" title="slides">slides</a>), this note introduces how to setup TensorFlow and Keras in your own computer without affecting your existing installations of Python.</p>
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><ol>
+<li>Follow the instructions on the <a href="https://www.continuum.io/downloads" target="_blank" rel="external">Anaconda download site</a> to download and install Anaconda.</li>
+<li><p>Create a sperated python environment by issuing the following command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda create -n tensorflow python=3.5</div></pre></td></tr></table></figure>
+</li>
+<li><p>To activate this environment:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">activate tensorflow</div></pre></td></tr></table></figure>
+</li>
+<li><p>You need to activate this environment everytime you want to play with TensorFlow+Keras</p>
+</li>
+<li><p>Install TensorFlow by invoking:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install tensorflow</div></pre></td></tr></table></figure>
+</li>
+<li><p>Install Keras by invoking:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install keras</div></pre></td></tr></table></figure>
+</li>
+<li><p>If you encounter scipy installation erros here (look for red words), you can invoke the following command and install keras again.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda install -c anaconda scipy</div></pre></td></tr></table></figure>
+</li>
+<li><p>Now you can call your python script:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python xxx.py</div></pre></td></tr></table></figure>
+</li>
+<li><p>Or you can play with a python notebook:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jupyter notebook</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Other-resources"><a href="#Other-resources" class="headerlink" title="Other resources:"></a>Other resources:</h2><ul>
+<li><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">Machine Learning</a> online course from Andred Ng. </li>
+<li><a href="http://deeplearning.stanford.edu/tutorial/" target="_blank" rel="external">Deep Learning Tutorial</a>.</li>
+<li>Book <a href="https://github.com/HFTrader/DeepLearningBook" target="_blank" rel="external">Deep Learning</a> by Ian Goodfellow, Yoshua Bengio and Aaron Courville. The link also provides useful references. </li>
+</ul>
+
+      
+       
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Keras/">Keras</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MachineLearning/">MachineLearning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/MachineLearning/">MachineLearning</a><a class="article-category-link" href="/categories/MachineLearning/Tutorial/">Tutorial</a>
+	</div>
+
 
       
       <div class="clearfix"></div>
