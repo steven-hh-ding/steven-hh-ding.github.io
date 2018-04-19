@@ -7,13 +7,14 @@
   <title>Idaapi GISTS | Steven H. H. Ding&#39;s Home Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Force creation of an assembly function:12345678910# get address from unstripped filedef check():    f = idaapi.get_func(ScreenEA())    print [hex(f.startEA), hex(f.endEA)]# create function in stripped">
+<meta name="keywords" content="IDA,Idaapi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Idaapi GISTS">
 <meta property="og:url" content="http://stevending.net/2018/04/13/Idaapi-Notes/index.html">
 <meta property="og:site_name" content="Steven H. H. Ding&#39;s Home Page">
 <meta property="og:description" content="Force creation of an assembly function:12345678910# get address from unstripped filedef check():    f = idaapi.get_func(ScreenEA())    print [hex(f.startEA), hex(f.endEA)]# create function in stripped">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-14T02:48:45.318Z">
+<meta property="og:updated_time" content="2018-04-19T03:31:00.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Idaapi GISTS">
 <meta name="twitter:description" content="Force creation of an assembly function:12345678910# get address from unstripped filedef check():    f = idaapi.get_func(ScreenEA())    print [hex(f.startEA), hex(f.endEA)]# create function in stripped">
@@ -90,7 +91,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/tags/LibVex/" style="font-size: 10px;">LibVex</a> <a href="/tags/MachineLearning/" style="font-size: 20px;">MachineLearning</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Xgboost/" style="font-size: 10px;">Xgboost</a>
+						<a href="/tags/IDA/" style="font-size: 10px;">IDA</a> <a href="/tags/Idaapi/" style="font-size: 10px;">Idaapi</a> <a href="/tags/Keras/" style="font-size: 10px;">Keras</a> <a href="/tags/LibVex/" style="font-size: 10px;">LibVex</a> <a href="/tags/MachineLearning/" style="font-size: 20px;">MachineLearning</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Xgboost/" style="font-size: 10px;">Xgboost</a> <a href="/tags/ggplot/" style="font-size: 10px;">ggplot</a>
 					</div>
 				</section>
 				
@@ -183,7 +184,15 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDA/">IDA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Idaapi/">Idaapi</a></li></ul>
+	</div>
+
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/ReverseEngineering/">ReverseEngineering</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -193,7 +202,7 @@
        
       
         <h2 id="Force-creation-of-an-assembly-function"><a href="#Force-creation-of-an-assembly-function" class="headerlink" title="Force creation of an assembly function:"></a>Force creation of an assembly function:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># get address from unstripped file</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">()</span>:</span></div><div class="line">    f = idaapi.get_func(ScreenEA())</div><div class="line">    <span class="keyword">print</span> [hex(f.startEA), hex(f.endEA)]</div><div class="line"></div><div class="line"><span class="comment"># create function in stripped file</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">create</span><span class="params">(ea_start, ea_end)</span>:</span></div><div class="line">    <span class="keyword">for</span> addr <span class="keyword">in</span> range(ea_start, ea_end): </div><div class="line">        idaapi.create_insn(addr)</div><div class="line">    MakeFunction(ea_start, ea_end)</div></pre></td></tr></table></figure>
-<h1 id="Remove-stack-reference-name-in-current-function"><a href="#Remove-stack-reference-name-in-current-function" class="headerlink" title="Remove stack reference name in current function:"></a>Remove stack reference name in current function:</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">unstack</span><span class="params">()</span>:</span></div><div class="line">    f = idaapi.get_func(ScreenEA())</div><div class="line">    <span class="keyword">for</span> addr <span class="keyword">in</span> range(f.startEA, f.endEA): </div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            idc.OpOff(addr, i, <span class="number">16</span>)</div></pre></td></tr></table></figure>
+<h2 id="Remove-stack-reference-name-in-current-function"><a href="#Remove-stack-reference-name-in-current-function" class="headerlink" title="Remove stack reference name in current function:"></a>Remove stack reference name in current function:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">unstack</span><span class="params">()</span>:</span></div><div class="line">    f = idaapi.get_func(ScreenEA())</div><div class="line">    <span class="keyword">for</span> addr <span class="keyword">in</span> range(f.startEA, f.endEA): </div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">            idc.OpOff(addr, i, <span class="number">16</span>)</div></pre></td></tr></table></figure>
       
        
     </div>
@@ -202,6 +211,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/04/17/Notes on ggplot/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          R API Notes
+        
+      </div>
+    </a>
   
   
     <a href="/2017/03/06/TensorflowKeraSetup/" id="article-nav-older" class="article-nav-link-wrap">
