@@ -22,83 +22,6 @@
     </item>
     
     <item>
-      <title>The &#34;figure&#34; Shortcode</title>
-      <link>http://stevending.net/posts/the-figure-shortcode/</link>
-      <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
-      
-      <guid>http://stevending.net/posts/the-figure-shortcode/</guid>
-      <description>Hugo has figure shortcode built in, so you can easily add figcaptions or hyperlink rel attributes to images. Documentations can be found here:
-https://gohugo.io/content-management/shortcodes/#figure
-This theme has 3 CSS classes made for figure elements:
- big: images will break the width limit of main content area. left: images will float to the left. right: images will float to the right.  If a figure has no class set, the image will behave just like a normal markdown image: !</description>
-    </item>
-    
-    <item>
-      <title>Post With Featured Image</title>
-      <link>http://stevending.net/posts/post-with-featured-image/</link>
-      <pubDate>Mon, 01 Oct 2018 16:15:09 +0800</pubDate>
-      
-      <guid>http://stevending.net/posts/post-with-featured-image/</guid>
-      <description>Just define the image URL in the content’s front matter, the featured image will be displayed as the background.
-For example:
----images:-https://picsum.photos/1024/768/?random--- This is an array, you can set multiple urls, only the first url will be used. These images is also used in Twitter Cards and the Open Graph metadata.</description>
-    </item>
-    
-    <item>
-      <title>Typography</title>
-      <link>http://stevending.net/posts/typography/</link>
-      <pubDate>Sat, 29 Sep 2018 11:36:33 +0800</pubDate>
-      
-      <guid>http://stevending.net/posts/typography/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>http://stevending.net/posts/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/posts/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>http://stevending.net/posts/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/posts/goisforlovers/</guid>
-      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>http://stevending.net/posts/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/posts/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
-    </item>
-    
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>http://stevending.net/posts/migrate-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/posts/migrate-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
-    
-    <item>
       <title></title>
       <link>http://stevending.net/teaching/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -115,6 +38,43 @@ Follow the following steps:
       
       <guid>http://stevending.net/about/</guid>
       <description>p{ /* text-align: justify; */ }  I am a Ph.D. candidate at McGill University, School of Information Studies since 2014. I am fortunate to be supervised by Dr. Benjamin C. M. Fung and work with him as well as other excellent colleagues in the Data Mining and Security Lab (DMaS). My research bridges the area of data mining, machine learning, and security. Under this umbrella, I design novel data mining and machine learning models and develop them as practical software applications that address critical issues in reverse engineering and cybercrime investigation.</description>
+    </item>
+    
+    <item>
+      <title>Awards</title>
+      <link>http://stevending.net/fundings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://stevending.net/fundings/</guid>
+      <description>          2018 McGill School of Information Studies Graduate Excellence Fellowship C$1,500   2017-2018 FRQNT Doctoral Research Scholarship (Ranked 2nd in the competition [Programme B2, Comité 05A, Groupe 2]) C$6,666   2014-2018 The Dean’s Graduate Award, McGill University (4 years) C$80,000   2014-2018 McGill Graduate Excellence Fund Pilot Recruitment Award, McGill University (3 years, replaced by the Dean’s Graduate Award) C$60,000   2017 McGill School of Information Studies Graduate Excellence Fellowship C$750   2016 Best Poster Award in the Smart Cybersecurity Network (SERENE-RISC) Research Showcase C$200   2016 ACM SIGKDD 2016 Student Travel Award $1,000   2015 Second Prize in the International Hex-Rays Software Plug-in Contest $1,000   2014 Graduation Bonus Award, Concordia University C$1,000   2013 Concordia Partial Tuition Scholarship, Concordia University C$1,000    </description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://stevending.net/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://stevending.net/contact/</guid>
+      <description>Email address:  Mailing address: Attn: Steven H. H. Ding  McGill University  School of Information Studies  3661 Peel St.  Montreal, Quebec  Canada H3A 1X1  Physical address: Data Mining and Security Lab McGill University 688 Sherbrook West, Rm. 327 Montreal, Quebec Canada H3A 1X1  wp themes responsive.mapouter{text-align:right;height:500px;width:346px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:300px;}</description>
+    </item>
+    
+    <item>
+      <title>Schedule</title>
+      <link>http://stevending.net/schedule/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://stevending.net/schedule/</guid>
+      <description>Steven H.H. Ding, Ph.D. Candidate (Make an appointment here)
+ </description>
+    </item>
+    
+    <item>
+      <title>Services</title>
+      <link>http://stevending.net/services/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://stevending.net/services/</guid>
+      <description> Program Committee Member          2019 The Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD)   2018 The ACM International Conference on Information and Knowledge Management (CIKM)   2018 The Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD)   2017 The ACM International Conference on Information and Knowledge Management (CIKM)   2016 The International Database Engineering and Applications Symposium (IDEAS)    Reviewer          2019 The AAAI Conference on Artificial Intelligence (AAAI)   2018 The SIAM International Conference on Data Mining (SDM)   2018 The AAAI Conference on Artificial Intelligence (AAAI)   2017 Scientometrics, Springer   2017 Knowledge and Information Systems (KAIS), Springer   2017 Elsevier Digital Investigation (DIIN)   2017 John Wiley &amp;amp; Sons Ltd, Concurrency and Computation: Practice and Experience   2017 The International Joint Conference on Artificial Intelligence (IJCAI)   2017 The World Wide Web Conference: Web Mining and Content Analysis (WWW)   2016 The IEEE International Conference on Data Mining (ICDM)   2016 The ACM International Conference on Knowledge Discovery and Data Mining (KDD)   2015 The ACM International Conference on Knowledge Discovery and Data Mining (KDD)   2014 The ACM International Conference on Knowledge Discovery and Data Mining (KDD)   2014 The IEEE International Conference on Data Engineering (ICDE)   2013 The IEEE International Conference on Data Mining (ICDM)    </description>
     </item>
     
   </channel>
