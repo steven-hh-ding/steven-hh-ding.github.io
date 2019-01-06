@@ -7,75 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://stevending.net/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Publications</title>
-      <link>http://stevending.net/publications/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/publications/</guid>
-      <description>function collapse(tid){ var content = document.querySelector(&#39;#&#39;+tid); if(!content) return if (content.style.display === &#34;block&#34;) { content.style.display = &#34;none&#34;; } else { content.style.display = &#34;block&#34;; } } window.addEventListener(&#39;load&#39;, function () { bbs = document.querySelectorAll(&#39;.highlight_tg&#39;) for(var i = 0; i 0){ collapse(hash+&#39;_abstract&#39;); collapse(hash+&#39;_bibtex&#39;); } }, false);  Journal Articles (3 + 2 in progress)   S. H. H. Ding, B. C. M. Fung, F. Iqbal, and W. K. Cheung. Learning stylometric representations for authorship analysis.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://stevending.net/teaching/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/teaching/</guid>
-      <description>Teaching 2018-winter - GLIS 630: Data Mining @ McGill University [53 students] Requirement: GLIS 617 – Information System Design, or basic knowledge of database systems.
- Data mining: This course will cover association rules mining, classification analysis, cluster analysis, text mining, basic concepts and methods of frequent patterns mining, online analytical mining (OLAM), online analytical processing (OLAP), and datawarehouse architecture. The goal is to develop new data analytic skills as well as a data-oriented problem solving perspective.</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>http://stevending.net/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/about/</guid>
-      <description>p{ /* text-align: justify; */ }  I am a Ph.D. candidate at McGill University, School of Information Studies since 2014. I am fortunate to be supervised by Dr. Benjamin C. M. Fung and work with him as well as other excellent colleagues in the Data Mining and Security Lab (DMaS). My research bridges the area of data mining, machine learning, and security. Under this umbrella, I design novel data mining and machine learning models and develop them as practical software applications that address critical issues in reverse engineering and cybercrime investigation.</description>
-    </item>
-    
-    <item>
-      <title>Awards</title>
-      <link>http://stevending.net/fundings/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/fundings/</guid>
-      <description>          2018 McGill School of Information Studies Graduate Excellence Fellowship C$1,500   2017-2018 FRQNT Doctoral Research Scholarship (Ranked 2nd in the competition [Programme B2, Comité 05A, Groupe 2]) C$6,666   2014-2018 The Dean’s Graduate Award, McGill University (4 years) C$80,000   2014-2018 McGill Graduate Excellence Fund Pilot Recruitment Award, McGill University (3 years, replaced by the Dean’s Graduate Award) C$60,000   2017 McGill School of Information Studies Graduate Excellence Fellowship C$750   2016 Best Poster Award in the Smart Cybersecurity Network (SERENE-RISC) Research Showcase C$200   2016 ACM SIGKDD 2016 Student Travel Award $1,000   2015 Second Prize in the International Hex-Rays Software Plug-in Contest $1,000   2014 Graduation Bonus Award, Concordia University C$1,000   2013 Concordia Partial Tuition Scholarship, Concordia University C$1,000    </description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>http://stevending.net/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/contact/</guid>
-      <description>Email address:  Mailing address: Attn: Steven H. H. Ding  McGill University  School of Information Studies  3661 Peel St.  Montreal, Quebec  Canada H3A 1X1  Physical address: Data Mining and Security Lab McGill University 688 Sherbrook West, Rm. 327 Montreal, Quebec Canada H3A 1X1  wp themes responsive.mapouter{text-align:right;height:500px;width:346px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:300px;}</description>
-    </item>
-    
-    <item>
-      <title>Schedule</title>
-      <link>http://stevending.net/schedule/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/schedule/</guid>
-      <description>Steven H.H. Ding, Ph.D. Candidate (Make an appointment here)
- </description>
-    </item>
-    
-    <item>
-      <title>Services</title>
-      <link>http://stevending.net/services/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://stevending.net/services/</guid>
-      <description> Program Committee Member          2019 The Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD)   2018 The ACM International Conference on Information and Knowledge Management (CIKM)   2018 The Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD)   2017 The ACM International Conference on Information and Knowledge Management (CIKM)   2016 The International Database Engineering and Applications Symposium (IDEAS)    Reviewer          2019 The AAAI Conference on Artificial Intelligence (AAAI)   2018 The SIAM International Conference on Data Mining (SDM)   2018 The AAAI Conference on Artificial Intelligence (AAAI)   2017 Scientometrics, Springer   2017 Knowledge and Information Systems (KAIS), Springer   2017 Elsevier Digital Investigation (DIIN)   2017 John Wiley &amp;amp; Sons Ltd, Concurrency and Computation: Practice and Experience   2017 The International Joint Conference on Artificial Intelligence (IJCAI)   2017 The World Wide Web Conference: Web Mining and Content Analysis (WWW)   2016 The IEEE International Conference on Data Mining (ICDM)   2016 The ACM International Conference on Knowledge Discovery and Data Mining (KDD)   2015 The ACM International Conference on Knowledge Discovery and Data Mining (KDD)   2014 The ACM International Conference on Knowledge Discovery and Data Mining (KDD)   2014 The IEEE International Conference on Data Engineering (ICDE)   2013 The IEEE International Conference on Data Mining (ICDM)    </description>
-    </item>
     
   </channel>
 </rss>
