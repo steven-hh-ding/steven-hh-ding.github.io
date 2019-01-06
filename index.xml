@@ -7,9 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://stevending.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,7 +21,7 @@
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>http://stevending.net/publications/</guid>
-      <description>var hls; var bbs; window.addEventListener(&#39;load&#39;, function () { hls = document.querySelectorAll(&#39;.highlight&#39;); bbs = document.querySelectorAll(&#39;.highlight_tg&#39;) console.log(hls.length + &#39; highlights and &#39; + bbs.length + &#39; toggles.&#39;); for(var i = 0; i Journal Articles (3 + 2 in progress)  S. H. H. Ding, B. C. M. Fung, F. Iqbal, and W. K. Cheung. Learning stylometric representations for authorship analysis. IEEE Transactions on Cybernetics (CYB18), ():14 pages, 2018, in press. [JCR impact factor: 8.</description>
+      <description>function collapse(tid){ var content = document.querySelector(&#39;#&#39;+tid); if(!content) return if (content.style.display === &#34;block&#34;) { content.style.display = &#34;none&#34;; } else { content.style.display = &#34;block&#34;; } } window.addEventListener(&#39;load&#39;, function () { bbs = document.querySelectorAll(&#39;.highlight_tg&#39;) for(var i = 0; i 0){ collapse(hash+&#39;_abstract&#39;); collapse(hash+&#39;_bibtex&#39;); } }, false);  Journal Articles (3 + 2 in progress)   S. H. H. Ding, B. C. M. Fung, F. Iqbal, and W. K. Cheung. Learning stylometric representations for authorship analysis.</description>
     </item>
     
     <item>
