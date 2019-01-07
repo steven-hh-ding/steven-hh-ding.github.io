@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://stevending.net/posts/deeplearninghardware/</loc>
+    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://stevending.net/publications/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -29,6 +34,28 @@
   </url>
   
   <url>
+    <loc>http://stevending.net/tags/deeplearning/</loc>
+    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://stevending.net/tags/hardware/</loc>
+    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://stevending.net/mentorship/</loc>
+  </url>
+  
+  <url>
+    <loc>http://stevending.net/posts/</loc>
+    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://stevending.net/schedule/</loc>
   </url>
   
@@ -44,6 +71,7 @@
   
   <url>
     <loc>http://stevending.net/tags/</loc>
+    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
