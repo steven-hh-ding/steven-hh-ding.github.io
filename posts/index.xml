@@ -302,12 +302,12 @@ Of course one needs to be cautious with those offers that are too good to be tru
 So I can upgrade my GPU later on.
 That&rsquo;s why I still use brand-new parts for the other components.</p>
 
-<p>It is noted that the CPU supports 40 PCIe lanes. Even though there will require 4*16 lanes for four GPU,
+<p>It is noted that the CPU supports 40 PCIe lanes. Even though there will require 4*16 lanes for four GPUs,
 the motherboard comes with a PLX switch that can simulate 16 lanes for each GPU.
 So one can avoid the wired <code>16x8x8x8</code> setups.
 However, <strong><em>the maximum bandwidth still limits to 40 lanes at the same moment</em></strong>.
 This would be problematic for data parallelization, since we need to wait for the slowest GPU to finish before moving on the next step.
-This problem cannot be fixed without a budget more than $20,000 (we need two CPUs).
+This problem cannot be fixed without a budget &lt; $20,000 (we need two CPUs).
 For now I will just ignore this issue.</p>
 ]]></content>
 		</item>
