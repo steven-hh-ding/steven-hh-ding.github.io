@@ -18,7 +18,7 @@
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>http://stevending.net/posts/deeplearninghardware/</guid>
-      <description>td { border-bottom: 1px groove #c7c8cb; border-top: 1px groove #c7c8cb; padding-left:20px; } table{ background-color:#2c3e5099; padding: 20px; font-size: 10pt; } img{ background-color:#2c3e5099; }  I was looking for a budget build workstation for deep learning model training. I decided that the system to start with should have the best price-to-flop performance, since my experience with the latest Titan V/Telsa V100 on Google Cloud is not very good. Training complex models are not significantly faster than the TitanXP in our lab.</description>
+      <description>td { border-bottom: 1px groove #c7c8cb; border-top: 1px groove #c7c8cb; padding-left:20px; } table{ background-color:#2c3e5099; padding: 20px; font-size: 10pt; } img{ background-color:#2c3e5099; } center{ overflow-x: auto; }  I was looking for a budget build workstation for deep learning model training. I decided that the system to start with should have the best price-to-flop performance, since my experience with the latest Titan V/Telsa V100 on Google Cloud is not very good.</description>
     </item>
     
     <item>
