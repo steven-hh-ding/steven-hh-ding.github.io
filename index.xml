@@ -7,9 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://stevending.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>="self" type="application/rss+xml" />
     
     
     <item>
@@ -73,7 +76,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://stevending.net/contact/</guid>
-      <description>Email address:  Mailing address: Attn: Steven H. H. Ding  McGill University  School of Information Studies  3661 Peel St.  Montreal, Quebec  Canada H3A 1X1  Physical address: Data Mining and Security Lab McGill University 688 Sherbrook West, Rm. 327 Montreal, Quebec Canada H3A 1X1  wp themes responsive.mapouter{text-align:right;height:500px;width:346px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:300px;}</description>
+      <description>iframe{ box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.54); }  Email address:  Mailing address: Attn: Steven H. H. Ding  McGill University  School of Information Studies  3661 Peel St.  Montreal, Quebec  Canada H3A 1X1  Physical address: Data Mining and Security Lab McGill University 688 Sherbrook West, Rm. 327 Montreal, Quebec Canada H3A 1X1  wp themes responsive.mapouter{text-align:right;height:500px;width:346px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:300px;}</description>
     </item>
     
     <item>
@@ -91,7 +94,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://stevending.net/schedule/</guid>
-      <description>Steven H.H. Ding, Ph.D. Candidate (Make an appointment here)
+      <description> iframe{ box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.54); }  Steven H.H. Ding, Ph.D. Candidate (Make an appointment here)
  </description>
     </item>
     

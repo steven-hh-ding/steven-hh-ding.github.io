@@ -13,7 +13,7 @@
 
 <meta itemprop="datePublished" content="2019-01-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-01-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="665">
+<meta itemprop="wordCount" content="663">
 
   <meta itemprop="image" content="https://picsum.photos/1024/768/?image=0&blur">
 
@@ -124,59 +124,13 @@ It will still take some time for the major deep learning frameworks to fully exp
 With the same budget, I can already get 4x1080ti which can significantly boost my training speed by data parallelization.
 Belows are benchmarks and specs from <a href="https://github.com/u39kun/deep-learning-benchmark" target="_blank">Yusaku Sako</a>. My biased observation is that, <em>optimizing my code will make my models get trained faster than switching to the latest GPU for my use cases</em>.</p>
 
-<p><center></p>
-
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th>Architecture</th>
-<th>Memory</th>
-<th>CUDA</th>
-<th>Tensor Cores</th>
-<th>F32 TFLOPS</th>
-<th>F16 TFLOPS</th>
-<th>Cost</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Tesla V100</td>
-<td>Volta</td>
-<td>16GB HBM2</td>
-<td>5120</td>
-<td>640</td>
-<td>15.7</td>
-<td>125</td>
-<td>$3.06/hr</td>
-</tr>
-
-<tr>
-<td>Titan V</td>
-<td>Volta</td>
-<td>12GB HBM2</td>
-<td>5120</td>
-<td>640</td>
-<td>15</td>
-<td>110*</td>
-<td>$2999</td>
-</tr>
-
-<tr>
-<td>1080 Ti</td>
-<td>Pascal</td>
-<td>11GB GDDR5</td>
-<td>3584</td>
-<td>0</td>
-<td>11</td>
-<td>N/A</td>
-<td>$699</td>
-</tr>
-</tbody>
-</table>
-
-<p></center></p>
+<p><center>
+|Model     |Architecture|Memory    |CUDA |Tensor Cores|F32 TFLOPS|F16 TFLOPS|Cost|
+|&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;-|&mdash;&mdash;|
+|Tesla V100|Volta       |16GB HBM2 |5120      |640         |15.7      |125       | $3.06/hr|
+|Titan V   |Volta       |12GB HBM2 |5120      |640         |15        |110*      |$2999  |
+|1080 Ti   |Pascal      |11GB GDDR5|3584      |0           |11        |N/A       |$699  |<br />
+</center></p>
 
 <p>The benchmark below is taken from <a href="https://lambdalabs.com/blog/best-gpu-tensorflow-2080-ti-vs-v100-vs-titan-v-vs-1080-ti-benchmark/" target="_blank">Lambda Lab Benchmark</a>. Values represent the speed-up-against-1080ti/$1000 (F32). Again, for my use case this number should be much lower, since the GPU is not very well utilized.</p>
 
@@ -399,7 +353,7 @@ For now I will just ignore this issue.</p>
 				<p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="http://stevending.net/tags/deeplearning">DeepLearning</a></span><span class="tag"><a href="http://stevending.net/tags/hardware">Hardware</a></span>
 				</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>665 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>663 Words</p>
 				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2018-12-31 19:00 -0500</p>
 			</footer>
 		</article>
